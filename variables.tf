@@ -31,7 +31,7 @@ variable "IGW_name" {
 variable "ec2_name" {
     description = "value of the name of Instance"
     type = string
-    default = "myInstance"
+    default = "teddy-server"
   
 }
 variable "ec2_ami" {

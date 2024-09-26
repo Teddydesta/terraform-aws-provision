@@ -48,7 +48,7 @@ resource "aws_internet_gateway" "my_IGW" {
 resource "aws_route_table" "my_RT" {
     vpc_id = aws_vpc.my_vpc.id
 
-    route = {
+    route {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.my_IGW.id
     }
@@ -70,7 +70,7 @@ resource "aws_security_group" "my_sg" {
     name = "HTTP"
     vpc_id = aws_vpc.my_vpc.id
 
-    ingress = {
+    ingress  {
         from_port = 80
         to_port =80
         protocol = "tcp"
