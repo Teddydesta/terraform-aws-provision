@@ -16,3 +16,4 @@ terraform.tfvars
 
 # Optional: Ignore crash logs
 crash.log
+.terraform.lock.hcl
