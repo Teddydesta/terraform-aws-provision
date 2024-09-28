@@ -80,15 +80,16 @@ resource "aws_security_group" "my_sg" {
   
 }
 
-##Create ec2 Instance
-resource "aws_instance" "my_instance" {
+##Create ec2 instance
+resource "aws_instance" "ec2-server" {
     ami = var.ec2_ami
-    instance_type = "t2.micro"
+    instance_type = "t2.xlarge"
+    count =  2
     subnet_id = aws_subnet.my_subnet.id
     vpc_security_group_ids = [ aws_security_group.my_sg.id ]
     #   associate_public_ip_address = true
       tags = {
-        "Name" = var.ec2_name
+        Name = "${var.ec2_name}- ${count.index +1}"
       }
 
 }
